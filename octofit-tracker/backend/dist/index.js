@@ -12,6 +12,7 @@ const users_1 = __importDefault(require("./routes/users"));
 const workouts_1 = __importDefault(require("./routes/workouts"));
 const app = (0, express_1.default)();
 const PORT = Number(process.env.PORT) || 8000;
+const HOST = process.env.HOST || '0.0.0.0';
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
     ? `https://${codespaceName}-8000.app.github.dev`
@@ -29,7 +30,7 @@ async function start() {
     try {
         await (0, database_1.connectDatabase)();
         console.log(`Connected to MongoDB at ${database_1.MONGODB_URI}`);
-        app.listen(PORT, () => {
+        app.listen(PORT, HOST, () => {
             console.log(`Backend listening on ${baseUrl}`);
         });
     }

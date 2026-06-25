@@ -1,0 +1,163 @@
+.app-shell {
+  min-height: 100svh;
+}
+
+.app-header {
+  align-items: end;
+  background: linear-gradient(135deg, #f7efe2 0%, #edf6f9 52%, #f8f4ff 100%);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  padding: 32px;
+  text-align: left;
+}
+
+.nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-pill {
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(25, 38, 52, 0.12);
+  border-radius: 6px;
+  color: var(--text-h);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 9px 13px;
+  text-decoration: none;
+}
+
+.nav-pill.active,
+.nav-pill:hover {
+  background: #17324d;
+  color: #fff;
+}
+
+.page-section {
+  padding: 32px;
+  text-align: left;
+}
+
+.section-heading {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: #2b735f;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.data-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.data-card,
+.rank-row {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.data-card {
+  padding: 20px;
+}
+
+.data-card p,
+.rank-row p {
+  color: var(--text);
+}
+
+dl {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+dl div {
+  display: flex;
+  justify-content: space-between;
+}
+
+dt {
+  color: var(--text);
+  font-weight: 700;
+}
+
+dd {
+  color: var(--text-h);
+  font-weight: 800;
+  margin: 0;
+  text-align: right;
+}
+
+.table-wrap {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.table {
+  margin: 0;
+}
+
+.rank-list {
+  display: grid;
+  gap: 12px;
+}
+
+.rank-row {
+  align-items: center;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 64px 1fr auto;
+  padding: 16px 20px;
+}
+
+.rank-row strong {
+  color: #2b735f;
+  font-size: 28px;
+}
+
+.rank-row span {
+  color: var(--text-h);
+  font-weight: 800;
+}
+
+.status-message {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+@media (min-width: 860px) {
+  .app-header {
+    grid-template-columns: minmax(260px, 1fr) auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-header,
+  .page-section {
+    padding: 22px;
+  }
+
+  .nav-pill {
+    flex: 1 1 calc(50% - 10px);
+    text-align: center;
+  }
+
+  .rank-row {
+    grid-template-columns: 1fr;
+  }
+}

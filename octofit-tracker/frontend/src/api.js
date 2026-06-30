@@ -1,21 +1,3 @@
-const API_PATHS = {
-  users: 'users',
-  teams: 'teams',
-  activities: 'activities',
-  leaderboard: 'leaderboard',
-  workouts: 'workouts',
-}
-
-const codespaceName = import.meta.env.VITE_CODESPACE_NAME
-
-export const apiBaseUrl = codespaceName
-  ? `https://${codespaceName}-8000.app.github.dev/api`
-  : 'http://localhost:8000/api'
-
-export function getApiUrl(resource) {
-  return `${apiBaseUrl}/${API_PATHS[resource]}/`
-}
-
 export function normalizeCollection(payload, resource) {
   if (Array.isArray(payload)) {
     return payload
@@ -37,8 +19,8 @@ export function normalizeCollection(payload, resource) {
   return collection || []
 }
 
-export async function fetchCollection(resource) {
-  const response = await fetch(getApiUrl(resource))
+export async function fetchCollection(endpoint, resource) {
+  const response = await fetch(endpoint)
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`)

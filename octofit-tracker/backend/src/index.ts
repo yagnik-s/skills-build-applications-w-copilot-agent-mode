@@ -8,6 +8,7 @@ import workoutsRouter from './routes/workouts';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 8000;
+const HOST = process.env.HOST || '0.0.0.0';
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
@@ -30,7 +31,7 @@ async function start(): Promise<void> {
     await connectDatabase();
     console.log(`Connected to MongoDB at ${MONGODB_URI}`);
 
-    app.listen(PORT, () => {
+    app.listen(PORT, HOST, () => {
       console.log(`Backend listening on ${baseUrl}`);
     });
   } catch (error) {
